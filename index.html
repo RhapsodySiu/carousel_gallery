@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>100 Hoods</title>
+  <meta name="description" content="">
+  <meta name="author" content="tanakananako">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="http://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <style>
+    ::selection {
+      color: white;
+      background: darkgray;
+    }
+    html, body {
+      min-width: 320px;
+      height: 100%;
+      transition: background-color 2s ease;
+    }
+    
+    body {
+      background-color: moccasin; 
+    }
+	
+	#preload {
+	  display: none;
+	}
+    
+    a#backToMainBtn {
+      text-decoration: none;
+      position:absolute;
+      top: -30px;
+      left: -150px;
+      color:orange;
+      transition: .5s ease;
+    }
+    a#backToMainBtn:hover {
+      text-shadow: 0px 0px 5px chocolate;
+      color:chocolate;
+    }
+    #title {
+      position: absolute;
+      border-radius: 50%;
+      min-height: 170px;
+      min-width: 170px;
+      display: flex;
+      flex-flow:column;
+      justify-content: center;
+      align-items: center;
+      background-color: beige;
+	  background: radial-gradient(circle, wheat, beige 40%);
+	  box-shadow: 0 2px 30px #e8d2aa;
+      transition: opacity 1s;
+	  overflow: hidden;
+    }
+    
+    #title h4 {
+      margin: 20px 0 5px 0;
+	  z-index:2;
+    }
+    
+    #title p {
+      color: sienna;
+	  z-index:1;
+    }
+	
+	.wave {
+	  opacity: .4;
+	  position: absolute;
+	  background: mistyrose;
+	  background: radial-gradient(circle, wheat, mistyrose 40%);
+	  width: 170px;
+	  height: 170px;
+	  top: -15px;
+	  -webkit-transform-origin: 53% 45%;
+			  transform-origin: 53% 45%;
+	  border-radius: 43%;
+	  -webkit-animation: drift 3000ms infinite linear;
+			  animation: drift 3000ms infinite linear;
+	}
+	
+	.wave.-three {
+	  -webkit-animation: drift 5000ms infinite linear;
+			  animation: drift 5000ms infinite linear;
+			  background: #fff7bf;
+			  background: radial-gradient(circle, wheat, #fff7bf 40%);
+	}
+
+	.wave.-two {
+	  -webkit-animation: drift 7000ms infinite linear;
+			  animation: drift 7000ms infinite linear;
+	  opacity: .1;
+	  background: lightsalmon;
+	  background: radial-gradient(circle, wheat, lightsalmon 40%);
+	}
+	
+	@-webkit-keyframes drift {
+	  from {
+		-webkit-transform: rotate(0deg);
+				transform: rotate(0deg);
+	  }
+	  from {
+		-webkit-transform: rotate(360deg);
+				transform: rotate(360deg);
+	  }
+	}
+    
+    .container {
+      margin-top: 100px;
+      transition: margin 1s ease;
+    }
+    img.hood {
+      max-width: 100%;
+      height: auto;
+      min-width: 480px;
+    }
+    
+    #gallery-row {
+      display: none;
+    }
+    
+    #img-container {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0;
+      transform: scale(.8,.8);
+      transition: all 1.5s ease;
+      text-align: center;
+    }
+    
+    #text-container {
+      justify-content: space-around;
+      height: 0;
+      opacity: 0;
+      transition: 1.5s ease;
+    }
+    #name {
+      text-align: center;
+    }
+    #description {
+      line-height: 2;
+    }
+    #action-list {
+      margin-top: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    a.action, a.action:hover {
+      text-decoration: none;
+      color:unset;
+    }
+    
+	#drops-container {
+	  position: relative;
+      width: 80%;
+	  left: 10%;
+      transition: opacity 1s ease;
+	}
+    .drop-btn {
+	  position:absolute;
+	  left: 50%;
+      text-decoration: none;
+    }
+    .drop-btn svg {
+      transition: transform .4s ease;
+    }
+    .drop-btn:hover svg {
+      transform: scale(2,2);
+    }
+    .drop-btn path {
+      transition: fill .5s ease;
+    }
+    .drop-btn:hover path {
+      fill: lightsalmon;
+    }
+    
+    #return-drops {
+      margin: 0 auto;
+      width: 35px;
+      display: block;
+    }
+    
+    #return-drops path {
+      transition: fill .5s ease;
+    }
+    #return-drops:hover path {
+      fill: white;
+    }
+    
+	@keyframes rotating {
+	  from {transform: rotate(0deg);}
+	  to {transform: rotate(1080deg);}
+	}
+    
+    #raindrops { height: 100% }
+	#raindrops { padding: 100px 0; overflow: hidden;}
+	.raindrop {
+        z-index: -1;
+		width: 30px;
+		height: 45px;
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='45' viewbox='0 0 30 45'%3E%3Cpath fill='white' d='M15 3 Q16.5 6.8 25 19 A12.3 12.3 0 1 1 5 19 Q13.5 6.8 15 3z' /%3E%3C/svg%3E");
+		position: absolute;
+	}
+
+	.x1 {
+        left: 50px;
+		-webkit-transform: scale(0.8);
+		-moz-transform: scale(0.8);
+		transform: scale(0.8);
+		opacity: 0.5;
+		-webkit-animation: movedrops 8s ease-in infinite;
+		-moz-animation: movedrops 8s ease-in infinite;
+		-o-animation: movedrops 8s ease-in infinite;
+	}
+
+	.x2 {
+		left: 300px;
+		-webkit-transform: scale(0.4);
+		-moz-transform: scale(0.4);
+		transform: scale(0.4);
+		opacity: 0.2;
+		-webkit-animation: movedrops 7s ease-in infinite;
+		-moz-animation: movedrops 7s ease-in infinite;
+		-o-animation: movedrops 7s ease-in infinite;
+	}
+	.x3 {
+		left: 450px;
+		-webkit-transform: scale(0.7);
+		-moz-transform: scale(0.7);
+		transform: scale(0.7);
+		opacity: 0.4;
+		-webkit-animation: movedrops 5s ease-in infinite;
+		-moz-animation: movedrops 5s ease-in infinite;
+		-o-animation: movedrops 5s ease-in infinite;
+	}
+	.x4 {
+		left: 900px;
+		-webkit-transform: scale(0.5);
+		-moz-transform: scale(0.5);
+		transform: scale(0.5);
+		opacity: 0.3;
+		-webkit-animation: movedrops 4s ease-in infinite;
+		-moz-animation: movedrops 4s ease-in infinite;
+		-o-animation: movedrops 4s ease-in infinite;
+	}
+	.x5 {
+		left: 1000px;
+		-webkit-transform: scale(0.3);
+		-moz-transform: scale(0.3);
+		transform: scale(0.3);
+		opacity: 0.1; 
+		-webkit-animation: movedrops 6s ease-in infinite;
+		-moz-animation: movedrops 6s ease-in infinite;
+		-o-animation: movedrops 6s ease-in infinite;
+	}
+    
+    .x6 {
+		left: 1200px;
+		-webkit-transform: scale(0.5);
+		-moz-transform: scale(0.5);
+		transform: scale(0.5);
+		opacity: 0.2; 
+		-webkit-animation: movedrops 5s ease-in infinite;
+		-moz-animation: movedrops 5s ease-in infinite;
+		-o-animation: movedrops 5s ease-in infinite;
+	}
+    
+    .x7 {
+		left: 1400px;
+		-webkit-transform: scale(0.7);
+		-moz-transform: scale(0.7);
+		transform: scale(0.7);
+		opacity: 0.45; 
+		-webkit-animation: movedrops 9s ease-in infinite;
+		-moz-animation: movedrops 9s ease-in infinite;
+		-o-animation: movedrops 9s ease-in infinite;
+	}
+    
+    .x8 {
+		left: 1580px;
+		-webkit-transform: scale(0.4);
+		-moz-transform: scale(0.4);
+		transform: scale(0.4);
+		opacity: 0.25; 
+		-webkit-animation: movedrops 7s ease-in infinite;
+		-moz-animation: movedrops 7s ease-in infinite;
+		-o-animation: movedrops 7s ease-in infinite;
+	}
+	@-webkit-keyframes movedrops { 
+		0% { 
+			top: -500px;
+		}
+		100% { 
+			top: 1000px;
+		}
+	}
+
+
+	@-moz-keyframes movedrops {     
+		0% { 
+			top: -500px;
+		}
+
+		100% { 
+			top: 1000px;
+		}
+	}
+
+	@-o-keyframes movedrops {
+		0% { 
+			top: -500px;
+		}
+		100% { 
+			top: 1000px;
+		}
+	}
+
+    @media only screen and (max-width: 1024px) {
+    a#backToMainBtn {
+        left: -90px;
+	}
+	.x7,.x8 {
+		left: 0;
+		display: none;
+	}
+    }
+    
+    @media only screen and (max-width: 800px) {
+      a#backToMainBtn {
+        top: -70px;
+        left: 10px;
+      }
+      #title {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        margin: 40px auto;
+      }
+	  
+	  .wave {
+	    width: 200px;
+		height: 200px;
+	  }
+      #drops-container {
+        display: flex;
+        flex-flow: row wrap;
+        width: 95%;
+        left: 5%;
+      }
+      .drop-btn {
+        position:relative;
+        left: auto;
+        flex: 1 0 20%;
+      }
+      .x1 {
+        left: 80px;
+      }
+      .x2 {
+        left: 160px;
+      }
+      .x3 {
+        left: 250px;
+      }
+      .x4 {
+        left: 400px;
+      }
+      .x5 {
+        left: 540px;
+      }
+	  .x6 {
+	    left: 630px;
+	  }
+	  .x7 {
+	    left: 730px;
+	  }
+	  .x8 {
+	    left: 0;
+	    display: none;
+	  }
+    }
+      
+   @media only screen and (max-width: 600px) {
+      img.hood {
+        max-width: 100%;
+        min-width: 280px;
+      }
+      #gallery-row {
+        flex-wrap: wrap;
+      }
+      .x1 {
+        left: 20px;
+      }
+      .x2 {
+        left: 150px;
+      }
+      .x3 {
+        left: 300px;
+      }
+      .x4 {
+        left: 450px;
+      }
+      .x5 {
+        left: 530px;
+      }
+	  .x6,.x7,.x8 {
+	    left: 0;
+	    display: none;
+	  }
+    }
+	
+	@media only screen and (max-width: 350px) {
+	  .x4 {
+	    left: 240px;
+	  }
+	  .x5 {
+	    left: 80px;
+	  }
+	  .x5,.x6,.x7,.x8 {
+	    left: 0;
+	    display: none;
+	  }
+    }
+
+  </style>
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div id="preload">
+  <img src="images/0.png"/>
+  <img src="images/1.png"/>
+  <img src="images/2.png"/>
+  <img src="images/9.png"/>
+  <img src="images/12.png"/>
+  <img src="images/14.png"/>
+  <img src="images/15.png"/>
+  <img src="images/16.png"/>
+  <img src="images/17.png"/>
+  <img src="images/19.png"/>
+  <img src="images/29.png"/>
+  <img src="images/30.png"/>
+  <img src="images/37.png"/>
+  <img src="images/40.png"/>
+  <img src="images/45.png"/>
+  <img src="images/48.png"/>
+  <img src="images/55.png"/>
+  <img src="images/61.png"/>
+  <img src="images/75.png"/>
+  <img src="images/76.png"/>
+  </div>
+  <div class="container">
+   <a id="backToMainBtn" href="http://www.bismuthworkshop.com">&#8629;Bismuth Workshop</a>
+    <div class="row">
+      <div class="u-full-width column">
+       <div id="title">
+	     <h4>100 Hoods</h4>
+         <p>@tanakananako</p>
+	     <div class='wave -one'></div>
+		 <div class='wave -two'></div>
+		 <div class='wave -three'></div>
+       </div>
+      </div>
+    </div>
+    <div id="gallery-row" class="row">
+      <div class="eight columns">
+          <div id="img-container">
+          <img src="" alt="" class="hood">
+          </div>
+        </div>
+        <div class="four columns">
+          <div id="text-container">
+          <h3 id="name"></h3>
+          <span id="description"></span>
+          <div class="u-full-width column" id="action-list">
+            <a class="action" href="#">&larr;</a>
+            <a class="action" id="return-drops" onclick="switchToDrops()" href="#">
+              <svg width="30" height="45" viewbox="0 0 30 45">
+                <path stroke="white" style="fill:none;"
+                      d="M15 3
+                         Q16.5 6.8 25 19
+                         A12.3 12.3 0 1 1 5 19
+                         Q13.5 6.8 15 3z" />
+                <text x="10" y="30" style="fill:white;">&#8629;</text>
+              </svg>
+            </a>
+            <a class="action" id="" href='#'>&rarr;</a>
+          </div>
+          </div>
+        </div>
+    </div>
+    <div class="row">
+      <div id="drops-container" class="u-full-width column"></div>
+    </div>
+  </div>
+  
+  <div id="raindrops">
+        <div class="raindrop x1"></div>
+        <div class="raindrop x2"></div>
+        <div class="raindrop x3"></div>
+        <div class="raindrop x4"></div>
+        <div class="raindrop x5"></div>
+        <div class="raindrop x6"></div>
+        <div class="raindrop x7"></div>
+        <div class="raindrop x8"></div>
+  </div>
+  
+  <script type="text/javascript" src="./data.js"></script>
+  <script type="text/javascript">
+  // responsive setting
+  var small = window.matchMedia("(max-width: 600px)");
+  var medium = window.matchMedia("(max-width: 800px)");
+  var pad = window.matchMedia("(max-width: 1024px)");
+  // dom setting
+  var drops, drop_count, circle_radius, period, showPercent, TotalPercent, currentPercent, loop;
+  var drops_container = document.querySelector("#drops-container");
+  var img_container = document.getElementById("img-container");
+  var text_container = document.getElementById("text-container");
+  var title = document.getElementById("title");
+  var wave = document.querySelector(".wave");
+  var return_btn = document.querySelector('#return-drops svg');
+    
+  (function() {
+    document.body.backgroundColor = gallery_data.defaultBgColor;
+    //resize the drops container
+	drops_container.style.height = drops_container.offsetWidth + "px";
+    
+    // adjust overall layout according to media query
+    if (!small.matches && !medium.matches) {
+      title.style.top = drops_container.offsetHeight/2 - title.offsetHeight/2 +"px";
+      title.style.left = drops_container.offsetLeft + drops_container.offsetWidth/2 - title.offsetWidth/2 + "px";
+    }
+    
+    //create drop buttons dynamically
+    for(let i = 0; i < gallery_data.count; ++i) {
+      let btn = document.createElement("a");
+      btn.className = "drop-btn";
+      btn.id = "drop" + i;
+      btn.href = "#";
+      let drop_svg = document.createElementNS('http://www.w3.org/2000/svg',"svg");
+      drop_svg.setAttribute("width", "30");
+      drop_svg.setAttribute("height", "45");
+      drop_svg.setAttribute("viewbox", "0 0 30 45");
+      let drop_path = document.createElementNS('http://www.w3.org/2000/svg',"path");
+      drop_path.setAttribute("d", "M15 3 Q16.5 6.8 25 19 A12.3 12.3 0 1 1 5 19 Q13.5 6.8 15 3z");
+      if (gallery_data.customBtnBgColors.length == gallery_data.count) {
+        drop_path.setAttribute("fill", gallery_data.customBtnBgColors[i]);
+      } else {
+        drop_path.setAttribute("fill", gallery_data.defaultBtnBgColor);
+      }
+      let drop_text = document.createElementNS('http://www.w3.org/2000/svg',"text");
+      drop_text.setAttribute("x", 6);
+      drop_text.setAttribute("y", 30);
+      if (gallery_data.customBtnColors.length == gallery_data.count) {
+        drop_text.setAttribute("fill", gallery_data.customBtnColors[i]);
+      } else {
+        drop_text.setAttribute("fill", gallery_data.defaultBtnColor);
+      }
+      
+      if (gallery_data.itemTags.length != gallery_data.count) {
+        drop_text.textContent = (i < 10 ? '0'+i : i);
+      } else {
+        drop_text.textContent = gallery_data.itemTags[i];
+      }
+      
+      drop_svg.appendChild(drop_path);
+      drop_svg.appendChild(drop_text);
+      btn.appendChild(drop_svg);
+      drops_container.appendChild(btn);
+    }
+    
+    drops = document.querySelectorAll(".drop-btn");
+    drop_count = drops.length;
+	circle_radius = drops_container.offsetWidth/2;
+	max_period = 100;
+    loop = 10;
+	period = 10;
+
+	// initialize position and link
+	let offset = 60;
+	if (pad.matches) offset = 45;
+    drops.forEach(function(drop, index) {
+      if (!small.matches && !medium.matches) {
+        if (index >= 70) {
+          drop.style.transform = "rotate(" + 360/(gallery_data.count-70)*index +"deg)";
+          drop.style.transformOrigin =  "0 " + circle_radius + "px";
+        } else if (index >= 45) {
+          drop.style.transform = "translate(0px, " + offset + "px) rotate(" + 360/25*index +"deg)";
+          drop.style.transformOrigin =  "0 " + (circle_radius - offset) + "px";
+        } else if (index >= 25) {
+          drop.style.transform = "translate(0px, " + offset*2 + "px) rotate(" + 360/20*index +"deg)";
+          drop.style.transformOrigin =  "0 " + (circle_radius - offset*2) + "px";
+        } else if (index >= 10) {
+          drop.style.transform = "translate(0px, " + offset*3 + "px) rotate(" + 360/15*index +"deg)";
+          drop.style.transformOrigin =  "0 " + (circle_radius - offset*3) + "px";
+        } else {
+          drop.style.transform = "translate(0px, " + offset*4 + "px) rotate(" + 360/10*index +"deg)";
+          drop.style.transformOrigin =  "0 " + (circle_radius - offset*4) + "px";
+        }
+      }
+
+      drop.onclick = function() {
+        switchToImg(index);
+      }
+    });
+    
+    if (!small.matches && !medium.matches ) {
+      // rotate the container
+      drops_container.style.animation = 'rotating ' + period + 's cubic-bezier(.1,.89,.5,.99) 1';
+    }
+  })();
+
+  /* This should load picture by the given order and switch to correct color given by data-color*/
+  function switchToImg(order) {
+    //hide drops menu items
+    drops_container.style.opacity = "0";
+    drops_container.style.height = "0";
+    title.style.opacity = "0";
+    if (small.matches || medium.matches) {
+      title.style.display = "none";
+    }
+    //if traverse through items, hide previous element first
+    text_container.style.opacity = "0";
+    img_container.style.opacity = "0";
+    img_container.style.transform = "scale(.8,.8)";
+    
+    setTimeout(function(){ 
+      //load the image in the container first
+      if(!gallery_data.imgNames || gallery_data.imgNames.length < gallery_data.count) {
+        document.querySelector("img.hood").src = "./images/" + order + ".png";
+      } else {
+        document.querySelector("img.hood").src = "./images/" + gallery_data.imgNames[order] + ".png";
+      }
+      setTimeout(function() {
+        img_container.style.opacity = "1";
+        text_container.style.opacity = "1";
+        if (!small.matches) { // If media query matches
+          text_container.style.marginTop = "300px";
+        }
+        img_container.style.transform = "scale(1,1)";
+      }, 800)
+    }, 1000);
+    
+    document.body.style.backgroundColor = gallery_data.itemBgColors[order];
+    
+    document.getElementById("text-container").style.color = (gallery_data.customTextColors[order] ? gallery_data.customTextColors[order] : gallery_data.defaultTextColor);
+    document.getElementById("action-list").style.color = (gallery_data.customTextColors[order] ? gallery_data.customTextColors[order] : gallery_data.defaultTextColor);
+    document.getElementById("backToMainBtn").style.color = (gallery_data.customTextColors[order] ? gallery_data.customTextColors[order] : gallery_data.defaultTextColor);
+    
+    if (order - 1 >= 0) {
+      document.getElementById("action-list").children[0].style.opacity = "1";
+      document.getElementById("action-list").children[0].onclick = function() {switchToImg(order-1)};
+    } else {
+      document.getElementById("action-list").children[0].style.opacity = "0";
+    }
+    if (order + 1 < gallery_data.count) {
+      document.getElementById("action-list").children[2].style.opacity = "1";
+      document.getElementById("action-list").children[2].onclick = function() {switchToImg(order+1)};
+    } else {
+      document.getElementById("action-list").children[2].style.opacity = "0";
+    }
+    
+    setTimeout(function(){ 
+      document.querySelector(".container").style.marginTop = "0";
+      // change return button and set new gallery event
+      return_btn.children[0].style.stroke = (gallery_data.customTextColors[order] ? gallery_data.customTextColors[order] : gallery_data.defaultTextColor);
+      return_btn.children[1].style.stroke = (gallery_data.customTextColors[order] ? gallery_data.customTextColors[order] : gallery_data.defaultTextColor);
+      return_btn.addEventListener('mouseover', function(){
+          return_btn.children[0].style.fill = (gallery_data.customTextColors[order] ? gallery_data.customTextColors[order] : gallery_data.defaultTextColor);
+          return_btn.children[1].style.stroke = (gallery_data.itemBgColors[order] ? gallery_data.itemBgColors[order] : gallery_data.itemBgColors);
+        });
+      return_btn.addEventListener('mouseout', function(){
+          return_btn.children[0].style.fill = 'none';
+          return_btn.children[1].style.stroke = (gallery_data.customTextColors[order] ? gallery_data.customTextColors[order] : gallery_data.defaultTextColor);
+      });
+      document.querySelector("#gallery-row").style.display = "flex";
+      setTimeout(function() {
+        if(gallery_data.itemNames) {
+          document.getElementById("name").textContent = gallery_data.itemNames[order];
+        }
+        if(gallery_data.itemDescriptions) {
+          document.getElementById("description").innerHTML = gallery_data.itemDescriptions[order];
+        }
+        img_container.style.opacity = "1";
+        text_container.style.opacity = "1";
+        img_container.style.transform = "scale(1,1)";
+      }, 800)
+    }, 400);
+  }
+    
+  function switchToDrops() {
+    text_container.style.opacity = "0";
+    img_container.style.opacity = "0";
+    img_container.style.transform = "scale(.8,.8)";
+    setTimeout(function(){
+      //drops_container.style.display = "block";
+      //img_container.style.display = "none";
+      document.querySelector(".container").style.marginTop = "100px";
+      text_container.style.marginTop = "0";
+      document.querySelector("#gallery-row").style.display = "none"
+      document.body.style.backgroundColor = gallery_data.defaultBgColor;
+      drops_container.style.height = "auto";
+      drops_container.style.opacity = "1";
+      if (small.matches || medium.matches) {
+        title.style.display = "flex";
+      }
+      title.style.opacity = "1";
+      document.getElementById("backToMainBtn").style.color = "orange";
+    }, 800);
+  }
+    
+  
+  </script>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>
