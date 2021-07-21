@@ -4,7 +4,7 @@ A carousel gallery layout using css3+javascript. Playing around with the css ani
 ## About
 A gallery layout that I use to present one of my art projects. The images are included in this repository as well.
 
-You may find the demo [here](http://www.bismuthworkshop.com/100hoods)
+You may find the demo [here](https://rhapsodysiu.github.io/carousel_gallery/)
 
 ## Credit
 css boilerplate: [Skeleton: Responsive css boilerplate](http://getskeleton.com)
