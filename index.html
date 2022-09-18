@@ -31,15 +31,15 @@
       height: 100%;
       transition: background-color 2s ease;
     }
-    
+
     body {
-      background-color: moccasin; 
+      background-color: moccasin;
     }
-	
+
 	#preload {
 	  display: none;
 	}
-    
+
     a#backToMainBtn {
       text-decoration: none;
       position:absolute;
@@ -67,17 +67,17 @@
       transition: opacity 1s;
 	  overflow: hidden;
     }
-    
+
     #title h4 {
       margin: 20px 0 5px 0;
 	  z-index:2;
     }
-    
+
     #title p {
       color: sienna;
 	  z-index:1;
     }
-	
+
 	.wave {
 	  opacity: .4;
 	  position: absolute;
@@ -92,7 +92,7 @@
 	  -webkit-animation: drift 3000ms infinite linear;
 			  animation: drift 3000ms infinite linear;
 	}
-	
+
 	.wave.-three {
 	  -webkit-animation: drift 5000ms infinite linear;
 			  animation: drift 5000ms infinite linear;
@@ -107,7 +107,7 @@
 	  background: lightsalmon;
 	  background: radial-gradient(circle, wheat, lightsalmon 40%);
 	}
-	
+
 	@-webkit-keyframes drift {
 	  from {
 		-webkit-transform: rotate(0deg);
@@ -118,7 +118,7 @@
 				transform: rotate(360deg);
 	  }
 	}
-    
+
     .container {
       margin-top: 100px;
       transition: margin 1s ease;
@@ -128,11 +128,11 @@
       height: auto;
       min-width: 480px;
     }
-    
+
     #gallery-row {
       display: none;
     }
-    
+
     #img-container {
       position: relative;
       max-width: 800px;
@@ -142,7 +142,7 @@
       transition: all 1.5s ease;
       text-align: center;
     }
-    
+
     #text-container {
       justify-content: space-around;
       height: 0;
@@ -161,12 +161,12 @@
       justify-content: space-between;
       align-items: center;
     }
-    
+
     a.action, a.action:hover {
       text-decoration: none;
       color:unset;
     }
-    
+
 	#drops-container {
 	  position: relative;
       width: 80%;
@@ -190,25 +190,25 @@
     .drop-btn:hover path {
       fill: lightsalmon;
     }
-    
+
     #return-drops {
       margin: 0 auto;
       width: 35px;
       display: block;
     }
-    
+
     #return-drops path {
       transition: fill .5s ease;
     }
     #return-drops:hover path {
       fill: white;
     }
-    
+
 	@keyframes rotating {
 	  from {transform: rotate(0deg);}
 	  to {transform: rotate(1080deg);}
 	}
-    
+
     #raindrops { height: 100% }
 	#raindrops { padding: 100px 0; overflow: hidden;}
 	.raindrop {
@@ -265,69 +265,69 @@
 		-webkit-transform: scale(0.3);
 		-moz-transform: scale(0.3);
 		transform: scale(0.3);
-		opacity: 0.1; 
+		opacity: 0.1;
 		-webkit-animation: movedrops 6s ease-in infinite;
 		-moz-animation: movedrops 6s ease-in infinite;
 		-o-animation: movedrops 6s ease-in infinite;
 	}
-    
+
     .x6 {
 		left: 1200px;
 		-webkit-transform: scale(0.5);
 		-moz-transform: scale(0.5);
 		transform: scale(0.5);
-		opacity: 0.2; 
+		opacity: 0.2;
 		-webkit-animation: movedrops 5s ease-in infinite;
 		-moz-animation: movedrops 5s ease-in infinite;
 		-o-animation: movedrops 5s ease-in infinite;
 	}
-    
+
     .x7 {
 		left: 1400px;
 		-webkit-transform: scale(0.7);
 		-moz-transform: scale(0.7);
 		transform: scale(0.7);
-		opacity: 0.45; 
+		opacity: 0.45;
 		-webkit-animation: movedrops 9s ease-in infinite;
 		-moz-animation: movedrops 9s ease-in infinite;
 		-o-animation: movedrops 9s ease-in infinite;
 	}
-    
+
     .x8 {
 		left: 1580px;
 		-webkit-transform: scale(0.4);
 		-moz-transform: scale(0.4);
 		transform: scale(0.4);
-		opacity: 0.25; 
+		opacity: 0.25;
 		-webkit-animation: movedrops 7s ease-in infinite;
 		-moz-animation: movedrops 7s ease-in infinite;
 		-o-animation: movedrops 7s ease-in infinite;
 	}
-	@-webkit-keyframes movedrops { 
-		0% { 
+	@-webkit-keyframes movedrops {
+		0% {
 			top: -500px;
 		}
-		100% { 
+		100% {
 			top: 1000px;
 		}
 	}
 
 
-	@-moz-keyframes movedrops {     
-		0% { 
+	@-moz-keyframes movedrops {
+		0% {
 			top: -500px;
 		}
 
-		100% { 
+		100% {
 			top: 1000px;
 		}
 	}
 
 	@-o-keyframes movedrops {
-		0% { 
+		0% {
 			top: -500px;
 		}
-		100% { 
+		100% {
 			top: 1000px;
 		}
 	}
@@ -341,7 +341,7 @@
 		display: none;
 	}
     }
-    
+
     @media only screen and (max-width: 800px) {
       a#backToMainBtn {
         top: -70px;
@@ -353,7 +353,7 @@
         height: 200px;
         margin: 40px auto;
       }
-	  
+
 	  .wave {
 	    width: 200px;
 		height: 200px;
@@ -395,7 +395,7 @@
 	    display: none;
 	  }
     }
-      
+
    @media only screen and (max-width: 600px) {
       img.hood {
         max-width: 100%;
@@ -424,7 +424,7 @@
 	    display: none;
 	  }
     }
-	
+
 	@media only screen and (max-width: 350px) {
 	  .x4 {
 	    left: 240px;
@@ -463,6 +463,7 @@
   <img src="images/29.png"/>
   <img src="images/30.png"/>
   <img src="images/37.png"/>
+  <img src="images/38.png"/>
   <img src="images/40.png"/>
   <img src="images/45.png"/>
   <img src="images/48.png"/>
@@ -515,7 +516,7 @@
       <div id="drops-container" class="u-full-width column"></div>
     </div>
   </div>
-  
+
   <div id="raindrops">
         <div class="raindrop x1"></div>
         <div class="raindrop x2"></div>
@@ -526,7 +527,7 @@
         <div class="raindrop x7"></div>
         <div class="raindrop x8"></div>
   </div>
-  
+
   <script type="text/javascript" src="./data.js"></script>
   <script type="text/javascript">
   // responsive setting
@@ -541,18 +542,18 @@
   var title = document.getElementById("title");
   var wave = document.querySelector(".wave");
   var return_btn = document.querySelector('#return-drops svg');
-    
+
   (function() {
     document.body.backgroundColor = gallery_data.defaultBgColor;
     //resize the drops container
 	drops_container.style.height = drops_container.offsetWidth + "px";
-    
+
     // adjust overall layout according to media query
     if (!small.matches && !medium.matches) {
       title.style.top = drops_container.offsetHeight/2 - title.offsetHeight/2 +"px";
       title.style.left = drops_container.offsetLeft + drops_container.offsetWidth/2 - title.offsetWidth/2 + "px";
     }
-    
+
     //create drop buttons dynamically
     for(let i = 0; i < gallery_data.count; ++i) {
       let btn = document.createElement("a");
@@ -578,19 +579,19 @@
       } else {
         drop_text.setAttribute("fill", gallery_data.defaultBtnColor);
       }
-      
+
       if (gallery_data.itemTags.length != gallery_data.count) {
         drop_text.textContent = (i < 10 ? '0'+i : i);
       } else {
         drop_text.textContent = gallery_data.itemTags[i];
       }
-      
+
       drop_svg.appendChild(drop_path);
       drop_svg.appendChild(drop_text);
       btn.appendChild(drop_svg);
       drops_container.appendChild(btn);
     }
-    
+
     drops = document.querySelectorAll(".drop-btn");
     drop_count = drops.length;
 	circle_radius = drops_container.offsetWidth/2;
@@ -625,7 +626,7 @@
         switchToImg(index);
       }
     });
-    
+
     if (!small.matches && !medium.matches ) {
       // rotate the container
       drops_container.style.animation = 'rotating ' + period + 's cubic-bezier(.1,.89,.5,.99) 1';
@@ -645,8 +646,8 @@
     text_container.style.opacity = "0";
     img_container.style.opacity = "0";
     img_container.style.transform = "scale(.8,.8)";
-    
-    setTimeout(function(){ 
+
+    setTimeout(function(){
       //load the image in the container first
       if(!gallery_data.imgNames || gallery_data.imgNames.length < gallery_data.count) {
         document.querySelector("img.hood").src = "./images/" + order + ".png";
@@ -662,13 +663,13 @@
         img_container.style.transform = "scale(1,1)";
       }, 800)
     }, 1000);
-    
+
     document.body.style.backgroundColor = gallery_data.itemBgColors[order];
-    
+
     document.getElementById("text-container").style.color = (gallery_data.customTextColors[order] ? gallery_data.customTextColors[order] : gallery_data.defaultTextColor);
     document.getElementById("action-list").style.color = (gallery_data.customTextColors[order] ? gallery_data.customTextColors[order] : gallery_data.defaultTextColor);
     document.getElementById("backToMainBtn").style.color = (gallery_data.customTextColors[order] ? gallery_data.customTextColors[order] : gallery_data.defaultTextColor);
-    
+
     if (order - 1 >= 0) {
       document.getElementById("action-list").children[0].style.opacity = "1";
       document.getElementById("action-list").children[0].onclick = function() {switchToImg(order-1)};
@@ -681,19 +682,23 @@
     } else {
       document.getElementById("action-list").children[2].style.opacity = "0";
     }
-    
-    setTimeout(function(){ 
+
+    setTimeout(function(){
       document.querySelector(".container").style.marginTop = "0";
       // change return button and set new gallery event
       return_btn.children[0].style.stroke = (gallery_data.customTextColors[order] ? gallery_data.customTextColors[order] : gallery_data.defaultTextColor);
       return_btn.children[1].style.stroke = (gallery_data.customTextColors[order] ? gallery_data.customTextColors[order] : gallery_data.defaultTextColor);
       return_btn.addEventListener('mouseover', function(){
+        const itemBgColor = gallery_data.itemBgColors[order] ? gallery_data.itemBgColors[order] : gallery_data.itemBgColors;
           return_btn.children[0].style.fill = (gallery_data.customTextColors[order] ? gallery_data.customTextColors[order] : gallery_data.defaultTextColor);
-          return_btn.children[1].style.stroke = (gallery_data.itemBgColors[order] ? gallery_data.itemBgColors[order] : gallery_data.itemBgColors);
+          return_btn.children[1].style.fill = itemBgColor;
+          return_btn.children[1].style.stroke = itemBgColor;
         });
       return_btn.addEventListener('mouseout', function(){
+        const itemTextColor = gallery_data.customTextColors[order] ? gallery_data.customTextColors[order] : gallery_data.defaultTextColor;
           return_btn.children[0].style.fill = 'none';
-          return_btn.children[1].style.stroke = (gallery_data.customTextColors[order] ? gallery_data.customTextColors[order] : gallery_data.defaultTextColor);
+          return_btn.children[1].style.fill = itemTextColor;
+          return_btn.children[1].style.stroke = itemTextColor;
       });
       document.querySelector("#gallery-row").style.display = "flex";
       setTimeout(function() {
@@ -709,7 +714,7 @@
       }, 800)
     }, 400);
   }
-    
+
   function switchToDrops() {
     text_container.style.opacity = "0";
     img_container.style.opacity = "0";
@@ -730,8 +735,8 @@
       document.getElementById("backToMainBtn").style.color = "orange";
     }, 800);
   }
-    
-  
+
+
   </script>
 
 <!-- End Document
